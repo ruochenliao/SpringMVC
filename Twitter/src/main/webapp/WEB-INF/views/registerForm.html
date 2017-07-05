@@ -1,4 +1,5 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Spitter</title>
     <link rel="stylesheet" type="text/css" 
@@ -10,7 +11,7 @@
     <div id="content">
       <h1>Register</h1>
   
-      <form method="POST" th:object="${spitter}" enctype="multipart/form-data">
+      <form method="POST" th:object="${spitter}">
         <div class="errors" th:if="${#fields.hasErrors('*')}">
           <ul>
             <li th:each="err : ${#fields.errors('*')}" 
@@ -36,13 +37,9 @@
         <label th:class="${#fields.hasErrors('password')}? 'error'">Password</label>: 
           <input type="password" th:field="*{password}"  
                  th:class="${#fields.hasErrors('password')}? 'error'" /><br/>
-
-        <label>Profile Picture</label>:
-          <input type="file"
-                 name="profilePicture"
-                 accept="image/jpeg,image/png,image/gif" /><br/>
-
         <input type="submit" value="Register" />
+      
+      
       </form>
     </div>
     <div id="footer" th:include="page :: copy"></div>

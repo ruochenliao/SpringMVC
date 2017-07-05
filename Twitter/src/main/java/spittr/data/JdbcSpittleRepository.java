@@ -39,12 +39,11 @@ public class JdbcSpittleRepository implements SpittleRepository {
   }
 
   public Spittle findOne(long id) {
-    List<Spittle> spittles = jdbc.query(
+    return jdbc.queryForObject(
         "select id, message, created_at, latitude, longitude" +
         " from Spittle" +
         " where id = ?",
         new SpittleRowMapper(), id);
-    return spittles.size() > 0 ? spittles.get(0) : null;
   }
 
   public void save(Spittle spittle) {

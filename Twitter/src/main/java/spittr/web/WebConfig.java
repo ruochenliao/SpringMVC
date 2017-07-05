@@ -1,12 +1,8 @@
 package spittr.web;
 
-import java.io.IOException;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -20,7 +16,7 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 @EnableWebMvc
 @ComponentScan("spittr.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
-  
+
   @Bean
   public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
     ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
@@ -46,11 +42,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
   @Override
   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
     configurer.enable();
-  }
-  
-  @Bean
-  public MultipartResolver multipartResolver() throws IOException {
-    return new StandardServletMultipartResolver();
   }
   
 }
