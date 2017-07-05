@@ -11,6 +11,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spittr.Login;
 import spittr.Spitter;
 import spittr.data.SpitterRepository;
 
@@ -23,8 +24,8 @@ public class SpitterController {
   @Autowired
   public SpitterController(SpitterRepository spitterRepository) {
     this.spitterRepository = spitterRepository;
-  }
-  
+  }  
+
   @RequestMapping(value="/register", method=GET)
   public String showRegistrationForm(Model model) {
     model.addAttribute(new Spitter());

@@ -51,4 +51,10 @@ public class JdbcSpitterRepository implements SpitterRepository {
     }
   }
 
+@Override
+public Spitter findByUsernameAndPassword(String username, String password) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }

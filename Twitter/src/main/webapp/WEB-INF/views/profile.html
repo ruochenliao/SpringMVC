@@ -15,7 +15,10 @@
       <span th:text="${spitter.firstName}">First</span> <span th:text="${spitter.lastName}">Last</span><br/>
       <span th:text="${spitter.email}">email</span>
     </div>
-
+	
+	<div>
+		<a th:href="@{/spittles}">Post a new twitter</a>
+	</div>
     <div id="footer" th:include="page :: copy"></div>
   </body>
 </html>
